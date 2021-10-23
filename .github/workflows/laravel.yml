@@ -35,6 +35,14 @@ jobs:
         run: |
           mkdir -p database
           touch database/database.sqlite
+      - name: Generate key
+        run: php artisan migrate
+      - name: Generate key
+        run: php artisan passport:install
+      - name: Generate key
+        run: php artisan db:seed
+      - name: Generate key
+        run: npm run prod
       - name: Execute tests
         env:
           DB_CONNECTION: sqlite
